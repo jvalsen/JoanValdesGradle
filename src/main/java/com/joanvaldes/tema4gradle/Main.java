@@ -15,13 +15,13 @@ public class Main {
         // El TOKEN no es necesario para interactuar con modelos locales
         final String TOKEN = "PEGA_AQUI_TU_TOKEN";
         var model = OpenAiChatModel.builder()
-                .baseUrl("https://localhost:11434/v1")
+                .baseUrl("http://localhost:11434/v1")
                 .apiKey(TOKEN)
-                .modelName("gemma:2b")
+                .modelName("llama3.1:8b")
                 .build();
         List<ChatMessage> history = new ArrayList<>();
         // Interacción 1
-        history.add(new UserMessage("Hola, soy Germán"));
+        history.add(new UserMessage("Hola, soy Joan"));
         AiMessage respuesta = model.chat(history).aiMessage();
         history.add(respuesta);
         // Interacción 2

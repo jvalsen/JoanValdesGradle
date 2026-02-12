@@ -1,6 +1,12 @@
 plugins {
     id("java")
+    id("application")
 }
+
+application {
+    mainClass.set("com.joanvaldes.tema4gradle.Main")
+}
+
 
 group = "com.joanvaldes.tema4gradle"
 version = "1.0-SNAPSHOT"
@@ -22,3 +28,6 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+
+
