@@ -2,6 +2,7 @@ package com.joanvaldes.tema4gradle;
 
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.ChatMessage;
+import dev.langchain4j.data.message.SystemMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 
@@ -28,6 +29,8 @@ public class Main {
         respuesta = model.chat(history).aiMessage();
         history.add(respuesta);
         System.out.println(respuesta.text());
+        history.add(new SystemMessage("Eres un experto en física cuántica."));
+
     }
 
 }
