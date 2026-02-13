@@ -24,6 +24,21 @@ dependencies {
     implementation("dev.langchain4j:langchain4j-open-ai")
 
 }
+tasks.register<Exec>("ollamaVersion") {
+    commandLine("powershell", "-NoProfile", "-Command", "ollama --version")
+}
+
+tasks.register<Exec>("ollamaPs") {
+    commandLine("powershell", "-NoProfile", "-Command", "ollama ps")
+}
+
+tasks.register("llmInfo") {
+    dependsOn("ollamaVersion", "ollamaPs")
+    doLast {
+        println("Demo finalizada")
+    }
+}
+
 
 tasks.test {
     useJUnitPlatform()
